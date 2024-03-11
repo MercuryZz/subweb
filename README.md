@@ -84,7 +84,8 @@ server {
 ## Related
 
 - [tindy2013/subconverter](https://github.com/tindy2013/subconverter)
-- [CareyWang/MyUrls](https://github.com/CareyWang/MyUrls)
+- [CareyWang/sub-web](https://github.com/CareyWang/subweb)
+- [youshandefeiyang/sub-web-modify](https://github.com/youshandefeiyang/sub-web-modify)
 
 ## Contributing
 
