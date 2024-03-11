@@ -1,0 +1,15 @@
+version: "3"
+services:
+  subconverter:
+    image: "mercuryzz/subconverter:0.8.2"
+    container_name: subconverter
+    restart: always
+    ports: 
+      - "${SUBCONVERTER_PORT}:25500"
+
+  subweb:
+    image: "mercuryzz/subweb:latest"
+    container_name: subweb
+    restart: always
+    ports:
+      - "${SUBWEB_PORT}:80"
