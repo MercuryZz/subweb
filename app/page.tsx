@@ -8,32 +8,15 @@ import {
   FormValues,
 } from '@/lib/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {
-  Blend,
-  Cog,
-  Copy,
-  ExternalLink,
-  Github,
-  RailSymbol,
-  ArrowBigRightDash,
-} from 'lucide-react'
+import { Blend, Copy, ExternalLink, Github } from 'lucide-react'
 import Link from 'next/link'
-import { encode } from 'punycode'
 import { useState } from 'react'
-import { Resolver, useForm } from 'react-hook-form'
+import { Resolver, useForm, FieldErrors } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export default function Home() {
   const [subription, setSubscription] = useState<string>('')
-  const [shortLink, setShortLink] = useState<string>('')
-  const [settingShortLinkAddress, setSettingShortLinkAddress] =
-    useState<boolean>(false)
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-    watch,
-  } = useForm<FormValues>({
+  const { register, handleSubmit, watch } = useForm<FormValues>({
     resolver: zodResolver(formSchema) as Resolver<FormValues>,
     defaultValues: {
       url: '',
@@ -92,10 +75,11 @@ export default function Home() {
     navigator.clipboard.writeText(result)
     toast.success('订阅链接已复制到剪贴板')
   }
-  const onError = (errors: any) => {
+  const onError = (errors: FieldErrors<FormValues>) => {
     const fieldNames = Object.keys(errors)
     if (fieldNames.length > 0) {
-      const error = errors[fieldNames[0]]
+      const fieldName = fieldNames[0]
+      const error = errors[fieldName as keyof FormValues]
       if (error?.message) {
         toast.error(error.message)
       }
