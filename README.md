@@ -1,6 +1,6 @@
 # Sub Web
 
-subconverter's frontend built with Next.js.
+subconverter's frontend built with Next.js. [DEMO](https://subweb.lll.rest/)
 
 [tindy2013/subconverter](https://github.com/tindy2013/subconverter): Utility to convert between various proxy subscription formats.
 
