@@ -1,6 +1,7 @@
 # Sub Web
 
-[tindy2013/subconverter](https://github.com/tindy2013/subconverter)'s frontend built with Next.js.
+subconverter's frontend built with Next.js.
+
 [tindy2013/subconverter](https://github.com/tindy2013/subconverter): Utility to convert between various proxy subscription formats.
 
 ![](./public/screenshot.png)
@@ -48,3 +49,7 @@ docker run -p 3000:3000 ghcr.io/mercuryzz/subweb
 docker build -t subweb .
 docker run -p 3000:3000 subweb
 ```
+
+## 📝 License
+
+MIT © 2025 MercuryZz
