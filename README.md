@@ -44,7 +44,9 @@ bun run dev
 
 ```bash
 # pull from ghcr.io
-docker run -p 3000:3000 ghcr.io/mercuryzz/subweb
+docker run -p 3000:3000 ghcr.io/svefnz/subweb:latest
+# pull from dockerhub
+docker run -p 3000:3000 svefn/subweb:latest
 # or build from Dockerfile
 docker build -t subweb .
 docker run -p 3000:3000 subweb
