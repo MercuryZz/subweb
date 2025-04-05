@@ -20,6 +20,12 @@ jobs:
         with:
           install: true
 
+      - name: Login to DOCKER HUB
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
@@ -27,11 +33,12 @@ jobs:
           username: ${{ github.repository_owner}}
           password: ${{ secrets.GHPR_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: BUILD and PUSH Docker Image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ github.repository_owner}}/subweb:latest
+            svefn/subweb:latest
+            ghcr.io/svefnz/subweb:latest
