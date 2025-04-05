@@ -2,28 +2,18 @@ name: Release Sub Web for Docker
 on:
   workflow_dispatch:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - master
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  build-and-push:
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@master
         with:
           submodules: true
-
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            mercuryzz/subweb
-            ghcr.io/mercuryzz/subweb
-          tags: |
-            type=ref,event=branch
-            type=ref,event=tag
 
       - name: Set up QEMU
         uses: docker/setup-buildx-action@v3
@@ -49,5 +39,4 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: mercuryzz/subweb:latest
