@@ -40,3 +40,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: mercuryzz/subweb:latest
+          secrets: |
+            "github_token=${{ secrets.GHPR_TOKEN }}"
