@@ -39,7 +39,7 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: mercuryzz/subweb:latest
+          # tags: mercuryzz/subweb:latest
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/subweb:latest
             ghcr.io/${{ github.repository_owner }}/subweb:latest
