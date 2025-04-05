@@ -1,4 +1,4 @@
-FROM oven/bun:latest as base
+FROM oven/bun:latest AS base
 
 FROM base AS deps
 WORKDIR /app
@@ -13,7 +13,7 @@ RUN bun run build
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
-CMD ["bun", "--bun", "run" "start"]
+CMD ["bun", "--bun", "run", "start"]
 
 # FROM node:18-alpine AS runner
 # WORKDIR /app
